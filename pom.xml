@@ -6,7 +6,7 @@
 
     <artifactId>libfe</artifactId>
     <groupId>com.radixpro.enigma</groupId>
-    <version>0.0</version>
+    <version>0.1</version>
     <packaging>jar</packaging>
 
     <name>libfe</name>
