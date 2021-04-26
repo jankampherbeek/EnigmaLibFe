@@ -18,28 +18,50 @@ import org.junit.Test
 class CheckBoxBuilderTest : TestCase() {
 
     private val alignment = Pos.TOP_LEFT
-    private val styleClass = "checkb0xStyle"
+    private val styleClass = "checkboxStyle"
     private val selected = false
+    private val disable = true
+    private val focusTraversable = false
+    private val text = "Text for checkBox"
     private val checkBox = CheckBoxBuilder()
+        .setText(text)
         .setAlignment(alignment)
+        .setDisable(disable)
+        .setFocusTraversable(focusTraversable)
         .setStyleClass(styleClass)
         .setSelected(selected).build()
     private val checkBoxDefault = CheckBoxBuilder().build()
 
     @Test
-    fun `CheckBoxBuilder should handle alignment correctly`() {
+    fun `A newly defined alignment should be used`() {
         checkBox.alignment shouldBe alignment
     }
 
     @Test
-    fun `CheckBoxBuilder should handle styleClass correctly`() {
-        checkBox.styleClass[1] shouldBe styleClass
+    fun `A newly defined styleClass should be used`() {
+        checkBox.styleClass[2] shouldBe styleClass      // pos. 0 is checkBox, pos 1 is JFXCheckBOx
     }
 
     @Test
-    fun `CheckBoxBuilder should handle selected correctly`() {
+    fun `A newly defined value for selected should be used`() {
         checkBox.isSelected shouldBe selected
     }
+
+    @Test
+    fun `A newly defined text should be used`() {
+        checkBox.text shouldBe text
+    }
+
+    @Test
+    fun `A newly defined value for disable should be used`() {
+        checkBox.isDisable shouldBe disable
+    }
+
+    @Test
+    fun `A newly defined value for focusTraversable should be used`() {
+        checkBox.isFocusTraversable shouldBe focusTraversable
+    }
+
 
     @Test
     fun `CheckBoxBuilder should handle default alignment correctly`() {
@@ -48,11 +70,26 @@ class CheckBoxBuilderTest : TestCase() {
 
     @Test
     fun `CheckBoxBuilder should handle default styleClass correctly`() {
-        checkBoxDefault.styleClass.size shouldBe 1
+        checkBoxDefault.styleClass.size shouldBe 2
     }
 
     @Test
     fun `CheckBoxBuilder should handle default selected correctly`() {
         checkBoxDefault.isSelected shouldBe false
+    }
+
+    @Test
+    fun `The default value for text should be used`() {
+        checkBoxDefault.text shouldBe ""
+    }
+
+    @Test
+    fun `The default value for disable should be used`() {
+        checkBoxDefault.isDisable shouldBe false
+    }
+
+    @Test
+    fun `The default value for focusTraversable should be used`() {
+        checkBoxDefault.isFocusTraversable shouldBe true
     }
 }

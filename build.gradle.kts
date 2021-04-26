@@ -33,7 +33,7 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.32")
     implementation("com.google.guava:guava:30.0-jre")
-    implementation("io.github.palexdev:materialfx:11.10.1")
+    compile("com.jfoenix:jfoenix:9.0.10")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:1.4.31")
     testImplementation("junit:junit:4.12")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.0")

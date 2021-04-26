@@ -7,21 +7,26 @@
 
 package com.radixpro.enigma.libfe.fxbuilders
 
-import javafx.scene.control.CheckBox
+import com.jfoenix.controls.JFXCheckBox
 
 import javafx.geometry.Pos
+import javafx.scene.paint.Color
 
 /**
  * Builder for CheckBox. No default values.
  */
 class CheckBoxBuilder {
 
-    private var alignment: Pos? = null
-    private var styleClass: String = ""
+    private val colorChecked = Color.STEELBLUE
+    private var align: Pos? = null
+    private var styleClass = ""
+    private var text = ""
     private var selected = false
+    private var focusTraversable = true
+    private var disable = false
 
-    fun setAlignment(alignment: Pos): CheckBoxBuilder {
-        this.alignment = alignment
+    fun setAlignment(align: Pos): CheckBoxBuilder {
+        this.align = align
         return this
     }
 
@@ -35,12 +40,30 @@ class CheckBoxBuilder {
         return this
     }
 
-    fun build(): CheckBox {
-        val checkBox = CheckBox()
+    fun setFocusTraversable(focusTrav: Boolean): CheckBoxBuilder {
+        this.focusTraversable = focusTrav
+        return this
+    }
+
+    fun setDisable(disable: Boolean): CheckBoxBuilder {
+        this.disable = disable
+        return this
+    }
+
+    fun setText(text: String): CheckBoxBuilder {
+        this.text = text
+        return this
+    }
+
+    fun build(): JFXCheckBox {
+        val checkBox = JFXCheckBox()
+        checkBox.text = text
+        checkBox.checkedColor = colorChecked
+        checkBox.isFocusTraversable = focusTraversable
+        checkBox.isDisable = disable
         checkBox.isSelected = selected
-        if (null != alignment) checkBox.alignment = alignment
+        if (null != align) checkBox.alignment = align
         if (styleClass.isNotBlank()) checkBox.styleClass.add(styleClass)
         return checkBox
     }
-
 }
