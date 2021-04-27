@@ -7,10 +7,10 @@
 
 package com.radixpro.enigma.libfe.fxbuilders
 
+import com.jfoenix.controls.JFXButton
 import com.radixpro.enigma.libfe.testsupport.JfxTestRunner
 import io.kotest.matchers.doubles.plusOrMinus
 import io.kotest.matchers.shouldBe
-import javafx.scene.control.Button
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -20,11 +20,12 @@ class ButtonBarBuilderTest {
     private val margin = 0.00000001
     private val prefHeight = 24.0
     private val prefWidth = 200.0
-    private val buttons = arrayListOf(Button("a"), Button("b"))
+    private val buttonA = JFXButton("a")
+    private val buttonB = JFXButton("b")
     private val buttonBar = ButtonBarBuilder()
         .setPrefHeight(prefHeight)
         .setPrefWidth(prefWidth)
-        .setButtons(buttons).build()
+        .setButtons(buttonA, buttonB).build()
     private val buttonBarDefault = ButtonBarBuilder().build()
 
     @Test
@@ -39,7 +40,8 @@ class ButtonBarBuilderTest {
 
     @Test
     fun `ButtonBarBuilder should handle adding buttons correctly`() {
-        buttonBar.buttons shouldBe buttons
+        buttonBar.buttons[0] shouldBe buttonA
+        buttonBar.buttons.size shouldBe 2
     }
 
     @Test

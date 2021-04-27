@@ -6,7 +6,6 @@
 
 package com.radixpro.enigma.libfe.fxbuilders
 
-import com.jfoenix.controls.JFXTooltip
 import com.radixpro.enigma.libfe.testsupport.JfxTestRunner
 import io.kotest.matchers.shouldBe
 import javafx.scene.text.TextAlignment

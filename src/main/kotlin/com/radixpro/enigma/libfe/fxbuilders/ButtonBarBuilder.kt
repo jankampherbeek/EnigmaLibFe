@@ -7,7 +7,7 @@
 
 package com.radixpro.enigma.libfe.fxbuilders
 
-import javafx.scene.control.Button
+import com.jfoenix.controls.JFXButton
 import javafx.scene.control.ButtonBar
 
 /**
@@ -17,23 +17,35 @@ class ButtonBarBuilder {
 
     private var prefWidth = 0.0
     private var prefHeight = 0.0
-    private var buttons = arrayListOf<Button>()
+    private var buttons = arrayListOf<JFXButton>()
 
+    /**
+     * Preferred height. Optional.
+     */
     fun setPrefHeight(prefHeight: Double): ButtonBarBuilder {
         this.prefHeight = prefHeight
         return this
     }
 
+    /**
+     * Preferred width. Optional.
+     */
     fun setPrefWidth(prefWidth: Double): ButtonBarBuilder {
         this.prefWidth = prefWidth
         return this
     }
 
-    fun setButtons(buttons: ArrayList<Button>): ButtonBarBuilder {
-        this.buttons = buttons
+    /**
+     * Buttons to add. Buttons should be instances of JFXButton.
+     */
+    fun setButtons(vararg buttons: JFXButton): ButtonBarBuilder {
+        this.buttons.addAll(buttons)
         return this
     }
 
+    /**
+     * Bulds ButtonBar. (No JFoenix variant available).
+     */
     fun build(): ButtonBar {
         val buttonBar = ButtonBar()
         if (prefHeight > 0.0) buttonBar.prefHeight = prefHeight

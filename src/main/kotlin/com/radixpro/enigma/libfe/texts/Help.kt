@@ -7,6 +7,7 @@
 
 package com.radixpro.enigma.libfe.texts
 
+import com.jfoenix.controls.JFXButton
 import com.radixpro.enigma.libfe.fxbuilders.ButtonBarBuilder
 import com.radixpro.enigma.libfe.fxbuilders.ButtonBuilder
 import com.radixpro.enigma.libfe.fxbuilders.LabelBuilder
@@ -16,7 +17,6 @@ import com.radixpro.enigma.libfe.texts.Rosetta.getText
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Scene
-import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.Pane
@@ -70,7 +70,7 @@ class Help(private val title: String, private val content: String) {
     }
 
     private fun createButtonBar(): ButtonBar {
-        val buttonBar = ButtonBarBuilder().setButtons(arrayListOf(createCloseButton())).build()
+        val buttonBar = ButtonBarBuilder().setButtons(createCloseButton()).build()
         buttonBar.styleClass.add("helppane")
         return buttonBar
     }
@@ -84,7 +84,7 @@ class Help(private val title: String, private val content: String) {
         return webView
     }
 
-    private fun createCloseButton(): Button {
+    private fun createCloseButton(): JFXButton {
         val button = ButtonBuilder().setText("ui.shared.btn.exit").setDisabled(false).build()
         button.setOnAction { onClose() }
         return button

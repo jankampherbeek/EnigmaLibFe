@@ -11,6 +11,7 @@ import com.radixpro.enigma.libfe.testsupport.JfxTestRunner
 import io.kotest.matchers.doubles.plusOrMinus
 import io.kotest.matchers.shouldBe
 import javafx.geometry.Insets
+import javafx.geometry.Pos
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -20,6 +21,7 @@ internal class ButtonBuilderTest {
     private val text = "button text"
     private val prefHeight = 50.0
     private val prefWidth = 150.0
+    private val alignment = Pos.TOP_CENTER
     private val padding = Insets(6.0)
     private val disabled = false
     private val focusTraversable = true
@@ -29,6 +31,7 @@ internal class ButtonBuilderTest {
         .setPrefHeight(prefHeight)
         .setPrefWidth(prefWidth)
         .setPadding(padding)
+        .setAlignment(alignment)
         .setDisabled(disabled)
         .setFocusTraversable(focusTraversable).build()
     private val buttonDefault = ButtonBuilder().build()
@@ -51,6 +54,11 @@ internal class ButtonBuilderTest {
     @Test
     fun `ButtonBuilder should handle padding correctly`() {
         button.padding shouldBe padding
+    }
+
+    @Test
+    fun `ButtonBuilder should handle alignment correctly`() {
+        button.alignment shouldBe alignment
     }
 
     @Test
@@ -81,6 +89,12 @@ internal class ButtonBuilderTest {
     @Test
     fun `ButtonBuilder should handle default padding correctly`() {
         buttonDefault.padding shouldBe Insets(0.0)
+    }
+
+    @Test
+    fun `ButtonBuilder should handle default alginment correctly`() {
+        buttonDefault.alignment shouldBe Pos.CENTER_LEFT
+
     }
 
     @Test
