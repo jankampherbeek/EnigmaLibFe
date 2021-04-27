@@ -21,6 +21,7 @@ class TextFieldBuilderTest {
     private val margin = 0.00000001
     private val prefHeight = 20.0
     private val prefWidth = 100.0
+    private val maxWidth = 120.0
     private val styleClass = "textFieldStyleClass"
     private val text = "text4TextField"
     private val promptText = "promptText4TextField"
@@ -30,6 +31,7 @@ class TextFieldBuilderTest {
         .setPromptText(promptText)
         .setPrefHeight(prefHeight)
         .setPrefWidth(prefWidth)
+        .setMaxWidth(maxWidth)
         .setStyleClass(styleClass)
         .setAlignment(alignment).build()
     private val textFieldDefault = TextFieldBuilder().build()
@@ -46,8 +48,13 @@ class TextFieldBuilderTest {
     }
 
     @Test
+    fun `TextFieldBuilder should handle maxWidth correctly`() {
+        textField.maxWidth shouldBe (maxWidth plusOrMinus margin)
+    }
+
+    @Test
     fun `TextFieldBuilder should handle styleClass correctly`() {
-        textField.styleClass[2] shouldBe styleClass
+        textField.styleClass[3] shouldBe styleClass         // index 3 is used for styleclass JFoenix
     }
 
     @Test
@@ -76,8 +83,13 @@ class TextFieldBuilderTest {
     }
 
     @Test
+    fun `TextFieldBuilder should handle default maxWidth correctly`() {
+        textFieldDefault.maxWidth shouldBe -1
+    }
+
+    @Test
     fun `TextFieldBuilder should handle default styleClass correctly`() {
-        textFieldDefault.styleClass.size shouldBe 2
+        textFieldDefault.styleClass.size shouldBe 3
     }
 
     @Test
