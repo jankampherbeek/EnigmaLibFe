@@ -7,6 +7,7 @@
 
 package com.radixpro.enigma.libfe.fxbuilders
 
+import com.jfoenix.controls.JFXCheckBox
 import com.radixpro.enigma.libfe.testsupport.JfxTestRunner
 import io.kotest.matchers.shouldBe
 import javafx.geometry.Pos
@@ -31,6 +32,11 @@ class CheckBoxBuilderTest : TestCase() {
         .setStyleClass(styleClass)
         .setSelected(selected).build()
     private val checkBoxDefault = CheckBoxBuilder().build()
+
+    @Test
+    fun `CheckboxBuilder should return instance of JFXCheckBox`() {
+        (checkBox is JFXCheckBox) shouldBe true
+    }
 
     @Test
     fun `A newly defined alignment should be used`() {
