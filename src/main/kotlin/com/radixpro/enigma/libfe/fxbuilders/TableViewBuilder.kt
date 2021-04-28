@@ -19,26 +19,41 @@ class TableViewBuilder {
     private var editable = false
     private var visible = true
 
+    /**
+     * PrefHeight. Optional.
+     */
     fun setPrefHeight(prefHeight: Double): TableViewBuilder {
         this.prefHeight = prefHeight
         return this
     }
 
+    /**
+     * PrefWidth. Optional.
+     */
     fun setPrefWidth(prefWidth: Double): TableViewBuilder {
         this.prefWidth = prefWidth
         return this
     }
 
+    /**
+     * Indicates if tableview is editable. Default false.
+     */
     fun setEditable(editable: Boolean): TableViewBuilder {
         this.editable = editable
         return this
     }
 
+    /**
+     * Indicates it tableView is visible. Default true.
+     */
     fun setVisible(visible: Boolean): TableViewBuilder {
         this.visible = visible
         return this
     }
 
+    /**
+     * Builds instance of TableView.
+     */
     fun build(): TableView<Any> {
         val tableView = TableView<Any>()
         tableView.isEditable = editable

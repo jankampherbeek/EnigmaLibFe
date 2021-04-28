@@ -11,7 +11,6 @@ import com.radixpro.enigma.libfe.testsupport.JfxTestRunner
 import io.kotest.matchers.shouldBe
 import org.junit.Test
 
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 
 @RunWith(JfxTestRunner::class)
