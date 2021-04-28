@@ -10,10 +10,7 @@ package com.radixpro.enigma.libfe.fxbuilders
 import javafx.scene.control.TableColumn
 
 /**
- * Builder for TableColumn.
- * Default values:
- * <ul><li>text: ""</li><li>editable: false</li><li>resizable: true</li><li>sortable: false</li>
- * <li>visible: true</li></ul>
+ * Builder for TableColumn.<br/>
  * CellValueFactory needs to be defined separately.
  */
 class TableColumnBuilder {
@@ -24,31 +21,49 @@ class TableColumnBuilder {
     private var sortable = false
     private var visible = true
 
+    /**
+     * Text for column. Default "".
+     */
     fun setText(text: String): TableColumnBuilder {
         this.text = text
         return this
     }
 
+    /**
+     * Indicates ic column is editable. Default false.
+     */
     fun setEditable(editable: Boolean): TableColumnBuilder {
         this.editable = editable
         return this
     }
 
+    /**
+     * Indicates if column is resizable. Default false.
+     */
     fun setResizable(resizable: Boolean): TableColumnBuilder {
         this.resizable = resizable
         return this
     }
 
+    /**
+     * Indiates if column is sortable. Default false.
+     */
     fun setSortable(sortable: Boolean): TableColumnBuilder {
         this.sortable = sortable
         return this
     }
 
+    /**
+     * Indicates if column is visible. Default true.
+     */
     fun setVisible(visible: Boolean): TableColumnBuilder {
         this.visible = visible
         return this
     }
 
+    /**
+     * Builds instance of TableColumn.
+     */
     fun build(): TableColumn<*, *> {
         val tableColumn = TableColumn<Any, String>()
         tableColumn.isEditable = editable
