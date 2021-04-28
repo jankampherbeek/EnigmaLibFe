@@ -11,12 +11,9 @@ import com.radixpro.enigma.libfe.testsupport.JfxTestRunner
 import io.kotest.matchers.doubles.plusOrMinus
 import io.kotest.matchers.shouldBe
 import javafx.geometry.Insets
-import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.Label
 import org.junit.Test
-
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 
 @RunWith(JfxTestRunner::class)
@@ -26,13 +23,14 @@ class VBoxBuilderTest {
     private val prefHeight = 80.0
     private val prefWidth = 160.0
     private val padding = Insets(6.0)
-    private val children: ArrayList<Node> = arrayListOf(Label("x"), Button("y"))
+    private val child1 = Label("x")
+    private val child2 = Button("y")
     private val style = "myStyle"
     private val vBox = VBoxBuilder()
         .setPrefHeight(prefHeight)
         .setPrefWidth(prefWidth)
         .setPadding(padding)
-        .setChildren(children)
+        .setChildren(child1, child2)
         .setStyle(style).build()
     private val vBoxDefault = VBoxBuilder().build()
 
@@ -53,7 +51,7 @@ class VBoxBuilderTest {
 
     @Test
     fun `VBoxBuilder should handle children correctly`() {
-        vBox.children shouldBe children
+        vBox.children[1] shouldBe child2
     }
 
     @Test

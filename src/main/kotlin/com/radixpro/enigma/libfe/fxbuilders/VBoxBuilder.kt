@@ -14,7 +14,7 @@ import javafx.scene.layout.VBox
 import kotlin.collections.ArrayList
 
 /**
- * Builder for VBox. No default values.
+ * Builder for VBox.
  */
 class VBoxBuilder {
 
@@ -24,31 +24,49 @@ class VBoxBuilder {
     private var style: String = ""
     private var children: ArrayList<Node> = ArrayList()
 
+    /**
+     * PrefWidth. Optional.
+     */
     fun setPrefWidth(prefWidth: Double): VBoxBuilder {
         this.prefWidth = prefWidth
         return this
     }
 
+    /**
+     * PrefHeight. Optional.
+     */
     fun setPrefHeight(prefHeight: Double): VBoxBuilder {
         this.prefHeight = prefHeight
         return this
     }
 
+    /**
+     * Insets for padding. Optional.
+     */
     fun setPadding(padding: Insets): VBoxBuilder {
         this.padding = padding
         return this
     }
 
-    fun setChildren(children: ArrayList<Node>): VBoxBuilder {
-        this.children = children
+    /**
+     * Child nodes.
+     */
+    fun setChildren(vararg children: Node): VBoxBuilder {
+        this.children.addAll(children)
         return this
     }
 
+    /**
+     * Styleclass. WIll be processed after other styles. Optional.
+     */
     fun setStyle(style: String): VBoxBuilder {
         this.style = style
         return this
     }
 
+    /**
+     * Build instance of VBox.
+     */
     fun build(): VBox {
         val vBox = VBox()
         vBox.stylesheets.add(baseStyleSheet)
