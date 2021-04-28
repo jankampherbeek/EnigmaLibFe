@@ -61,12 +61,12 @@ class Help(private val title: String, private val content: String) {
     private fun createTitlePane(): Pane {
         val lblTitle = LabelBuilder().setText(title).setPrefWidth(INNER_WIDTH).setStyleClass("titletext").build()
         return PaneBuilder().setPrefHeight(TITLE_HEIGHT).setPrefWidth(INNER_WIDTH).setStyleClass("titlepane")
-            .setChildren(arrayListOf(lblTitle)).build()
+            .setChildren(lblTitle).build()
     }
 
     private fun createContentPane(): Pane {
         return PaneBuilder().setPrefWidth(INNER_WIDTH).setPrefHeight(400.0)
-            .setChildren(arrayListOf(createContentWebView())).build()
+            .setChildren(createContentWebView()).build()
     }
 
     private fun createButtonBar(): ButtonBar {

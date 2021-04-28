@@ -1,13 +1,15 @@
-/**
+/*
  * Jan Kampherbeek, (c) 2021.
  * EnigmaLibFe is open source.
  * Please check the file copyright.txt in the root of the source for further details.
  */
+
 package com.radixpro.enigma.libfe.fxbuilders
 
 import com.jfoenix.controls.JFXTooltip
 import javafx.geometry.Pos
 import javafx.scene.control.Label
+
 
 /**
  * Builder for a Label.
