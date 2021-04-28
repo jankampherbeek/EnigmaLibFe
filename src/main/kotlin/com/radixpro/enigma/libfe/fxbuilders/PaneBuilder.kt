@@ -11,7 +11,7 @@ import javafx.scene.Node
 import javafx.scene.layout.Pane
 
 /**
- * Builder for Pane. No defaults.
+ * Builder for Pane.
  */
 class PaneBuilder {
 
@@ -42,6 +42,9 @@ class PaneBuilder {
 
     fun build(): Pane {
         val pane = Pane()
+        pane.border
+        pane.padding
+        pane.background
         if (prefWidth > 0.0) pane.prefWidth = prefWidth
         if (prefHeight > 0.0) pane.prefHeight = prefHeight
         if (styleClass.isNotBlank()) pane.styleClass.add(styleClass)
