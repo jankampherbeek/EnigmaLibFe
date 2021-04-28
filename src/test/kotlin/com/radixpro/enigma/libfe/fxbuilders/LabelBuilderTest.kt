@@ -5,6 +5,7 @@
  */
 package com.radixpro.enigma.libfe.fxbuilders
 
+import com.jfoenix.controls.JFXTooltip
 import com.radixpro.enigma.libfe.testsupport.JfxTestRunner
 import io.kotest.matchers.doubles.plusOrMinus
 import io.kotest.matchers.shouldBe
@@ -20,12 +21,14 @@ internal class LabelBuilderTest {
     private val prefWidth = 33.33
     private val prefHeight = 44.44
     private val styleClass = "my styleclass"
+    private val tooltip = JFXTooltip("tooltip")
     private val alignment = Pos.TOP_LEFT
     private val margin = 0.00000001
     private val label = LabelBuilder().setText(text)
         .setVisible(visible)
         .setPrefWidth(prefWidth)
         .setPrefHeight(prefHeight)
+        .setTooltip(tooltip)
         .setStyleClass(styleClass)
         .setAlignment(alignment).build()
     private val labelDefault = LabelBuilder().build()
@@ -51,6 +54,11 @@ internal class LabelBuilderTest {
     }
 
     @Test
+    fun `LabelBuilder should handle tooltip correctly`() {
+        label.tooltip shouldBe tooltip
+    }
+
+    @Test
     fun `LabelBuilder should handle styleClass correctly`() {
         label.styleClass[1]  shouldBe styleClass
     }
@@ -68,6 +76,11 @@ internal class LabelBuilderTest {
     @Test
     fun `LabelBuilder should handle default visibility correctly`() {
         labelDefault.isVisible shouldBe true
+    }
+
+    @Test
+    fun `LabelBuilder should handle default tooltip correctly`() {
+        labelDefault.tooltip shouldBe null
     }
 
     @Test
