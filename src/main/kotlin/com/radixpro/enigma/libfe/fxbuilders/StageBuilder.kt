@@ -12,9 +12,8 @@ import javafx.stage.Modality
 import javafx.stage.Stage
 
 /**
- * Builder for Stage.
- * Default values: <ul><li>title: ""</li><li>modality: Modality.NONE</li><li>alwaysOnTop: false</li>
- * <li>resizable: false</li></ul>
+ * Builder for Stage.<br/>
+ * Tests omitted, can only run on FX application thread.
  */
 class StageBuilder {
 
@@ -26,41 +25,65 @@ class StageBuilder {
     private var resizable = false
     private var scene: Scene? = null
 
+    /**
+     * Minimum width. Optional.
+     */
     fun setMinWidth(minWidth: Double): StageBuilder {
         this.minWidth = minWidth
         return this
     }
 
+    /**
+     * Minimum height. Optional.
+     */
     fun setMinHeight(minHeight: Double): StageBuilder {
         this.minHeight = minHeight
         return this
     }
 
+    /**
+     * Title: defaults to ""
+     */
     fun setTitle(title: String): StageBuilder {
         this.title = title
         return this
     }
 
+    /**
+     * Modality. Default: NONE.
+     */
     fun setModality(modality: Modality): StageBuilder {
         this.modality = modality
         return this
     }
 
+    /**
+     * Always on top. Default: false.
+     */
     fun setAlwaysOnTop(alwaysOnTop: Boolean): StageBuilder {
         this.alwaysOnTop = alwaysOnTop
         return this
     }
 
+    /**
+     * Resizable. Default: false.
+     */
     fun setResizable(resizable: Boolean): StageBuilder {
         this.resizable = resizable
         return this
     }
 
+    /**
+     * Scene. If not set remains null.
+     */
     fun setScene(scene: Scene): StageBuilder {
         this.scene = scene
         return this
     }
 
+    /**
+     * Build instance of stage.
+     */
     fun build(): Stage {
         val stage = Stage()
         stage.isAlwaysOnTop = alwaysOnTop
