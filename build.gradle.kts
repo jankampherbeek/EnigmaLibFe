@@ -5,6 +5,8 @@
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.4.32"
     id("org.openjfx.javafxplugin") version "0.0.9"
+    id("org.jetbrains.dokka") version "1.4.32"
+    id("com.github.johnrengelman.shadow") version "7.0.0"
     java
     `maven-publish`
     `java-library`
