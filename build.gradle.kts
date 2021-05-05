@@ -58,7 +58,7 @@ javafx {
 //}
 
 group = "com.radixpro.enigma"
-version = "0.2"
+version = "0.3"
 description = "libFE"
 java.sourceCompatibility = JavaVersion.VERSION_14
 
