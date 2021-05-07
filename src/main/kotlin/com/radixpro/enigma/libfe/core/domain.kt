@@ -7,3 +7,4 @@
 package com.radixpro.enigma.libfe.core
 
 data class BasicDate(val year: Int, val month: Int, val day: Int, val gregorian: Boolean)
+

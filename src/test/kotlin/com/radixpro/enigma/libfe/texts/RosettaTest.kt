@@ -10,8 +10,6 @@ package com.radixpro.enigma.libfe.texts
 import io.kotest.matchers.shouldBe
 import org.junit.Test
 
-import org.junit.Assert.*
-
 class RosettaTest {
 
 

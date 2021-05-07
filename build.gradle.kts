@@ -52,11 +52,6 @@ javafx {
     modules("javafx.controls", "javafx.web", "javafx.fxml")
 }
 
-//application {
-//    // Define the main class for the application.
-//    mainClass.set("com.radixpro.enigma.AppLauncherKt")
-//}
-
 group = "com.radixpro.enigma"
 version = "0.3"
 description = "libFE"
@@ -68,7 +63,7 @@ publishing {
     }
 }
 
-tasks.withType<JavaCompile>() {
+tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }
 

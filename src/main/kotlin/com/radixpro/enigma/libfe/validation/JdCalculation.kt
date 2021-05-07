@@ -59,7 +59,6 @@ class JdCalculation {
         val intJd = workJd.toInt()
         val fractJd = workJd - intJd
         var calendarCorrectedJd = intJd
-//        if (z >= 2291161) {   // Gregorian
         if (gregorian) {   // Gregorian            Meeus checks for z >= 2291161
            val alpha = ((intJd - 1867216.25) / 36524.25).toInt()
            calendarCorrectedJd = intJd + 1 + alpha - (alpha/4)

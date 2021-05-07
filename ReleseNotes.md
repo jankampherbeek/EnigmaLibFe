@@ -1,5 +1,9 @@
 # Enigma DedFE - releasenotes
 
+### 0.3 - 2021-05-07
+Added validations for inputted date, time, double and int.
+Added enums for UiCelPoints and CelPointCat.
+
 ### 0.2 - 2021-05-01 
 Added builders for JavaFX elements:
 
