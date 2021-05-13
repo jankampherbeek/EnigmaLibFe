@@ -6,6 +6,7 @@
 
 package com.radixpro.enigma.libfe.validation
 
+import com.radixpro.enigma.libfe.core.UiCelPoints
 import io.kotest.matchers.shouldBe
 import org.junit.Test
 
@@ -151,6 +152,31 @@ internal class ValidatorTest {
     @Test
     fun `Validating first possible date in the past should return true`() {
         validator.isValidDate("-12999/8/11", true) shouldBe true
+    }
+
+    @Test
+    fun `Validating if celestial point can be calculated at a supported given date should return true`() {
+        validator.isValidDateForCelPoint(2000000.0, UiCelPoints.SEDNA) shouldBe true
+    }
+
+    @Test
+    fun `Validating if celestial point can be calculated at an unsupported given date should return false`() {
+        validator.isValidDateForCelPoint(3000000.0, UiCelPoints.SEDNA) shouldBe false
+    }
+
+    @Test
+    fun `Validating if a celestial point can be calculated during a supported period should return true`() {
+        validator.isValidPeriodForCelPoint(2000000.0, 2100000.0, UiCelPoints.SEDNA) shouldBe true
+    }
+
+    @Test
+    fun `Validating if a celestial point can be calculated during a unsupported period should return false`() {
+        validator.isValidPeriodForCelPoint(3000000.0, 3100000.0, UiCelPoints.SEDNA) shouldBe false
+    }
+
+    @Test
+    fun `Validating if a celestial point can be calculated during a partly supported period should return false`() {
+        validator.isValidPeriodForCelPoint(2000000.0, 3000000.0, UiCelPoints.SEDNA) shouldBe false
     }
 
 }

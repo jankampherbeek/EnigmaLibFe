@@ -1,5 +1,9 @@
 # Enigma DedFE - releasenotes
 
+### 0.4 - 2021-05-13
+Extended enum for UiCelPoints with supported periods.
+Added validation for supported period and for supported date for a specific UiCelPoint.
+
 ### 0.3 - 2021-05-07
 Added validations for inputted date, time, double and int.
 Added enums for UiCelPoints and CelPointCat.

@@ -7,6 +7,7 @@
 package com.radixpro.enigma.libfe.validation
 
 import com.radixpro.enigma.libfe.core.BasicDate
+import com.radixpro.enigma.libfe.core.UiCelPoints
 
 /**
  * Validations for date, time and numeric inputs.
@@ -86,5 +87,18 @@ class Validator {
         return constructedDate == basicDate
     }
 
+    /**
+     * Checks if a CelPoint can be calculated for a specific Julian Day.
+     */
+    fun isValidDateForCelPoint(jdnr: Double, celPoint: UiCelPoints): Boolean {
+        return jdnr >= celPoint.startJd && jdnr <= celPoint.endJd
+    }
+
+    /**
+     * Checks if a CelPoint can be calculated during the whole of a specific period.
+     */
+    fun isValidPeriodForCelPoint(startJd: Double, endJd: Double, celPoint: UiCelPoints): Boolean {
+        return isValidDateForCelPoint(startJd, celPoint) && isValidDateForCelPoint(endJd, celPoint)
+    }
 
 }
